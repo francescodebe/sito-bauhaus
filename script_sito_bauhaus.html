@@ -1,0 +1,719 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bauhaus: La Casa dei Maestri di Dessau</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+        }
+        .bauhaus-bg {
+            background: linear-gradient(45deg, #E3342F 0%, #F6993F 25%, #FFED4A 50%, #38C172 75%, #3490DC 100%);
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 60%;
+            height: 3px;
+            background-color: #E3342F;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3490DC;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 25px;
+            width: 1px;
+            height: calc(100% - 15px);
+            background-color: #3490DC;
+        }
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        .artist-card {
+            transition: transform 0.3s ease;
+        }
+        .artist-card:hover {
+            transform: translateY(-5px);
+        }
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #E3342F;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .active-nav::after {
+            width: 100%;
+        }
+        .quote {
+            position: relative;
+            font-style: italic;
+            padding-left: 20px;
+        }
+        .quote::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -5px;
+            font-size: 1.5em;
+            color: #E3342F;
+        }
+        .anecdote {
+            border-left: 4px solid #3490DC;
+            padding-left: 1rem;
+        }
+        .bauhaus-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        @media (max-width: 768px) {
+            .bauhaus-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header con sfondo colorato Bauhaus -->
+    <header class="bauhaus-bg text-white py-6">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-5xl font-bold text-center">La Bauhaus e i suoi Maestri</h1>
+            <p class="text-xl text-center mt-2">Un viaggio attraverso l'arte, l'architettura e il design</p>
+        </div>
+    </header>
+
+    <!-- Navigazione -->
+    <nav class="bg-white shadow-md py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <ul class="flex flex-wrap justify-center space-x-1 md:space-x-6">
+                <li><a href="#intro" class="nav-link px-3 py-2 font-medium active-nav">Introduzione</a></li>
+                <li><a href="#gropius" class="nav-link px-3 py-2 font-medium">Walter Gropius</a></li>
+                <li><a href="#dessau-complex" class="nav-link px-3 py-2 font-medium">Complesso di Dessau</a></li>
+                <li><a href="#masters-house" class="nav-link px-3 py-2 font-medium">Case dei Maestri</a></li>
+                <li><a href="#kandinsky" class="nav-link px-3 py-2 font-medium">Kandinsky</a></li>
+                <li><a href="#klee" class="nav-link px-3 py-2 font-medium">Klee</a></li>
+                <li><a href="#other-masters" class="nav-link px-3 py-2 font-medium">Altri Maestri</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8">
+        <!-- Introduzione -->
+        <section id="intro" class="mb-16">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold mb-6 section-title">L'Arte e l'Architettura si Incontrano</h2>
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/2">
+                        <p class="text-lg mb-4">La Bauhaus rappresenta uno dei movimenti più influenti dell'arte e dell'architettura del XX secolo. Fondata da Walter Gropius nel 1919 a Weimar, Germania, la scuola ha rivoluzionato il modo di pensare al design, all'arte e all'architettura.</p>
+                        <p class="text-lg mb-4">In questo sito esploreremo la storia della Bauhaus, con particolare attenzione al complesso di Dessau e alla famosa Casa dei Maestri progettata da Walter Gropius, dove vissero alcuni dei più importanti artisti del XX secolo come Wassily Kandinsky e Paul Klee.</p>
+                        <div class="quote mt-6 mb-6">
+                            <p>"L'obiettivo finale di ogni attività artistica è la costruzione!" - Walter Gropius</p>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="bg-gray-100 p-6 rounded-lg">
+                            <img src="immagini/composizione-bauhaus.jpg" alt="Composizione Bauhaus" class="rounded-lg shadow-md mb-4">
+                            <p class="text-center mt-2 text-sm italic">Composizione ispirata allo stile Bauhaus</p>
+                        </div>
+                        <div class="mt-6 bg-yellow-50 p-4 rounded-lg">
+                            <h4 class="font-semibold">Curiosità storica:</h4>
+                            <p>La parola "Bauhaus" deriva dalla fusione di "Bau" (costruzione) e "Haus" (casa). Inizialmente, Gropius voleva chiamare la scuola "Bauhaus Staatliches" (Casa Statale della Costruzione), ma il nome venne abbreviato in "Bauhaus".</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Walter Gropius -->
+        <section id="gropius" class="mb-16">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold mb-6 section-title">Walter Gropius: Il Visionario</h2>
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/3">
+                        <div class="artist-card bg-blue-50 rounded-lg p-6 shadow-md">
+                            <img src="immagini/gropius.jpg" alt="Ritratto di Walter Gropius" class="rounded-lg shadow-md mb-4">
+                                <div class="text-center">
+                                    <h3 class="text-xl font-semibold mb-2">Walter Gropius</h3>
+                                    <p class="italic">1883-1969</p>
+                                    <p class="mt-2">Architetto tedesco, fondatore della Bauhaus</p>
+                                </div>
+                            <div class="text-center">
+                                <h3 class="text-xl font-semibold mb-2">Walter Gropius</h3>
+                                <p class="italic">1883-1969</p>
+                                <p class="mt-2">Architetto tedesco, fondatore della Bauhaus</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Cronologia essenziale</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li><strong>1883:</strong> Nasce a Berlino</li>
+                                <li><strong>1919:</strong> Fonda la Bauhaus a Weimar</li>
+                                <li><strong>1925:</strong> Trasferisce la Bauhaus a Dessau</li>
+                                <li><strong>1928:</strong> Lascia la direzione della Bauhaus</li>
+                                <li><strong>1934:</strong> Lascia la Germania nazista</li>
+                                <li><strong>1938:</strong> Si trasferisce negli Stati Uniti</li>
+                                <li><strong>1969:</strong> Muore a Boston</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-2xl font-semibold mb-4">L'Architetto e il Fondatore</h3>
+                        <p class="mb-4">Walter Gropius è stato uno dei più influenti architetti e teorici del XX secolo. La sua visione rivoluzionaria ha plasmato non solo l'architettura moderna, ma anche il modo in cui pensiamo all'educazione artistica e al design.</p>
+                        <p class="mb-4">Dopo aver servito nella Prima Guerra Mondiale, Gropius fondò la Bauhaus nel 1919 a Weimar, con l'obiettivo di unificare tutte le discipline artistiche sotto un unico tetto. La sua filosofia era basata sull'idea che l'arte e l'artigianato dovessero fondersi per creare una nuova architettura adatta all'era industriale.</p>
+                        
+                        <div class="anecdote my-6 pl-4">
+                            <h4 class="font-semibold mb-2">Aneddoto:</h4>
+                            <p>Quando Gropius fondò la Bauhaus, dovette affrontare una forte opposizione da parte dei circoli artistici tradizionali. Per convincere le autorità locali del valore della sua scuola, organizzò una mostra delle opere degli studenti che attirò visitatori da tutta Europa, dimostrando il potenziale innovativo della sua visione.</p>
+                        </div>
+                        
+                        <h4 class="text-xl font-semibold mt-6 mb-3">La Filosofia di Gropius</h4>
+                        <p class="mb-4">Gropius credeva fermamente nell'integrazione di arte, artigianato e tecnologia. Rifiutava la distinzione tra "belle arti" e "arti applicate", sostenendo che tutti gli artisti dovessero comprendere i materiali e i processi di produzione.</p>
+                        
+                        <div class="bg-blue-50 p-6 rounded-lg mt-6">
+                            <h4 class="font-semibold mb-3">Principi architettonici di Gropius:</h4>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li>Funzionalismo: la forma segue la funzione</li>
+                                <li>Razionalismo: uso logico dei materiali e delle tecniche costruttive</li>
+                                <li>Standardizzazione: elementi prefabbricati per l'edilizia di massa</li>
+                                <li>Integrazione: fusione di arte, artigianato e tecnologia</li>
+                                <li>Minimalismo: eliminazione degli ornamenti superflui</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h4 class="text-xl font-semibold mb-3">Opere principali oltre alla Bauhaus</h4>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium">Fagus-Werk (1911)</h5>
+                                    <p class="text-sm mt-1">Fabbrica di scarpe ad Alfeld, Germania. Considerata uno dei primi esempi di architettura moderna, con la sua innovativa facciata in vetro e acciaio.</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium">Pan Am Building (1963)</h5>
+                                    <p class="text-sm mt-1">Oggi MetLife Building, a New York. Progettato in collaborazione con Pietro Belluschi e Emery Roth & Sons.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Complesso di Dessau -->
+        <section id="dessau-complex" class="mb-16">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold mb-6 section-title">Il Complesso della Bauhaus a Dessau</h2>
+                <div class="flex flex-col gap-6">
+                    <div class="bg-gray-100 p-6 rounded-lg">
+                       <img src="immagini/complesso-dessau.jpeg" alt="Composizione astratta in stile Bauhaus" class="rounded-lg shadow-md">
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-2/3">
+                            <h3 class="text-2xl font-semibold mb-4">Un Manifesto Architettonico</h3>
+                            <p class="mb-4">Nel 1925, quando la Bauhaus fu costretta a lasciare Weimar a causa di pressioni politiche, la città industriale di Dessau offrì a Gropius l'opportunità di progettare un nuovo edificio per la scuola. Questo trasferimento segnò l'inizio della fase più produttiva e influente della Bauhaus.</p>
+                            <p class="mb-4">Il complesso di Dessau, completato nel 1926, non era solo la sede della scuola, ma un vero e proprio manifesto architettonico che incarnava i principi della Bauhaus. Il complesso comprendeva:</p>
+                            
+                            <ul class="list-disc pl-5 space-y-2 mb-6">
+                                <li><strong>L'edificio principale della scuola</strong> - con le sue officine, aule, amministrazione e mensa</li>
+                                <li><strong>La residenza degli studenti</strong> - con 28 appartamenti per gli studenti</li>
+                                <li><strong>Le Case dei Maestri</strong> - residenze per i professori e le loro famiglie</li>
+                            </ul>
+                            
+                            <h4 class="text-xl font-semibold mb-3">Caratteristiche architettoniche</h4>
+                            <p class="mb-4">L'edificio principale della Bauhaus a Dessau è considerato un capolavoro dell'architettura modernista e presenta diverse caratteristiche innovative:</p>
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium">Facciata in vetro</h5>
+                                    <p class="text-sm mt-1">La celebre facciata in vetro dell'ala dei laboratori, che sembrava fluttuare senza supporto, era rivoluzionaria per l'epoca e simboleggiava la trasparenza dell'istituzione.</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium">Struttura a blocchi</h5>
+                                    <p class="text-sm mt-1">L'edificio era composto da blocchi distinti, ciascuno con una funzione specifica, collegati da ponti e corridoi, creando una composizione dinamica.</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium">Colori funzionali</h5>
+                                    <p class="text-sm mt-1">I colori erano utilizzati non solo per scopi estetici, ma anche funzionali, per identificare diverse aree e funzioni dell'edificio.</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium">Illuminazione innovativa</h5>
+                                    <p class="text-sm mt-1">Grande attenzione fu data all'illuminazione naturale, con ampie finestre e lucernari progettati per ottimizzare la luce per il lavoro artistico.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/3">
+                            <div class="bg-yellow-50 p-6 rounded-lg mb-6">
+                                <h4 class="font-semibold mb-2">Curiosità architettonica:</h4>
+                                <p>L'edificio della Bauhaus a Dessau fu uno dei primi a utilizzare il concetto di "pianta libera", con pareti interne non portanti che potevano essere spostate per riconfigurare gli spazi secondo le necessità. Questo principio è diventato fondamentale nell'architettura moderna.</p>
+                            </div>
+                            
+                            <div class="bg-blue-50 p-6 rounded-lg">
+                                <h4 class="font-semibold mb-2">Contesto storico:</h4>
+                                <p class="mb-3">La città di Dessau era un importante centro industriale negli anni '20, sede di aziende come la Junkers (aerei) e la I.G. Farben (chimica). Questo ambiente industriale influenzò profondamente l'approccio della Bauhaus al design e alla produzione.</p>
+                                <p>Il sindaco di Dessau, Fritz Hesse, fu un sostenitore entusiasta della Bauhaus e giocò un ruolo cruciale nell'invitare Gropius e la sua scuola nella città, vedendo in essa un'opportunità per modernizzare Dessau.</p>
+                            </div>
+                            
+                            <div class="mt-6 p-4 border border-gray-200 rounded-lg">
+                                <h4 class="font-semibold mb-2">Patrimonio UNESCO</h4>
+                                <p>Nel 1996, l'edificio della Bauhaus e le Case dei Maestri a Dessau sono stati dichiarati Patrimonio dell'Umanità dall'UNESCO, riconoscendo il loro eccezionale valore culturale e architettonico.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Casa dei Maestri -->
+        <section id="masters-house" class="mb-16">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold mb-6 section-title">Le Case dei Maestri di Dessau</h2>
+                <p class="text-lg mb-6">Nel 1925-26, Walter Gropius progettò un complesso residenziale per i maestri della Bauhaus: le Meisterhäuser (Case dei Maestri). Queste abitazioni non erano solo luoghi dove vivere, ma veri e propri manifesti dell'ideale abitativo della Bauhaus.</p>
+                
+                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+                    <p class="font-medium">Focus principale: La Casa Doppia di Kandinsky e Klee</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-4">Architettura e Design</h3>
+                        <p class="mb-4">Il complesso delle Case dei Maestri comprendeva la casa del direttore (abitata da Gropius) e tre case doppie per gli altri maestri della scuola. Ogni casa doppia era composta da due unità abitative speculari ma distinte, collegate da un garage comune.</p>
+                        <p class="mb-4">Kandinsky e Klee condividevano una delle case doppie, ciascuno occupando una metà dell'edificio. La struttura rifletteva i principi della Bauhaus: funzionalità, semplicità e uso innovativo dei materiali.</p>
+                        
+                        <div class="anecdote my-6 pl-4">
+                            <h4 class="font-semibold mb-2">Aneddoto:</h4>
+                            <p>Nonostante le case fossero identiche nella struttura, Kandinsky e Klee le personalizzarono secondo i loro gusti artistici. Kandinsky dipinse le pareti del suo appartamento con colori vivaci e forme geometriche, mentre Klee optò per tonalità più tenui e naturali. I visitatori potevano letteralmente "entrare" nell'estetica di ciascun artista semplicemente passando da un'abitazione all'altra.</p>
+                        </div>
+                        
+                        <h4 class="font-semibold mt-6 mb-2">Caratteristiche principali:</h4>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Forme cubiche e geometriche</li>
+                            <li>Ampie finestre per massimizzare la luce naturale</li>
+                            <li>Balconi e terrazze funzionali</li>
+                            <li>Interni flessibili e modulari</li>
+                            <li>Uso di colori primari negli interni</li>
+                            <li>Mobili progettati specificamente per gli spazi</li>
+                            <li>Innovativo sistema di riscaldamento centralizzato</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="immagini/casa-kandinsky-klee.jpg" alt="Casa doppia Kandinsky-Klee a Dessau" class="rounded-lg shadow-md">
+                        <div class="sketchfab-embed-wrapper"> <iframe title="CasaDoppia-Vista3D-{3D}" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/82c9b71d12cd49acb670169cdae7f370/embed"> </iframe> </a></p></div>
+                        <div class="mt-4 bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Cronologia della costruzione</h4>
+                            <ul class="space-y-2">
+                                <li><strong>1925:</strong> Inizio della progettazione</li>
+                                <li><strong>1926:</strong> Completamento della costruzione</li>
+                                <li><strong>1926-1932:</strong> Periodo di residenza dei maestri</li>
+                                <li><strong>1932:</strong> Abbandono delle case dopo la chiusura della Bauhaus di Dessau</li>
+                                <li><strong>1945:</strong> Danneggiamento durante la Seconda Guerra Mondiale</li>
+                                <li><strong>1992-2014:</strong> Restauro progressivo delle case</li>
+                                <li><strong>2014:</strong> Completamento del restauro e apertura al pubblico</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-6 bg-blue-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Innovazioni tecniche:</h4>
+                            <p>Le Case dei Maestri erano all'avanguardia anche dal punto di vista tecnico. Gropius utilizzò materiali moderni come il cemento armato e introdusse soluzioni innovative come finestre ad angolo senza pilastri di supporto visibili, creando un effetto di leggerezza e continuità tra interno ed esterno.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8">
+                    <h3 class="text-2xl font-semibold mb-4">La Vita nelle Case dei Maestri</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="bg-blue-50 p-6 rounded-lg">
+                            <h4 class="font-semibold text-xl mb-3">Interni e Arredamento</h4>
+                            <p class="mb-3">Gli interni delle case riflettevano la filosofia della Bauhaus: mobili funzionali, spazi aperti e uso strategico del colore. Molti dei mobili furono progettati da Marcel Breuer, un ex studente diventato maestro della Bauhaus.</p>
+                            <p>Ogni maestro aveva la libertà di personalizzare i propri spazi. Kandinsky utilizzò colori vivaci e forme geometriche, mentre Klee optò per tonalità più tenui e naturali, riflettendo le loro diverse sensibilità artistiche.</p>
+                        </div>
+                        <div class="bg-green-50 p-6 rounded-lg">
+                            <h4 class="font-semibold text-xl mb-3">Vita sociale e collaborativa</h4>
+                            <p class="mb-3">Le Case dei Maestri non erano solo abitazioni private, ma anche luoghi di incontro e scambio intellettuale. I maestri organizzavano regolarmente cene, feste e discussioni che contribuivano a creare un'atmosfera di collaborazione creativa.</p>
+                            <p>Gli studenti erano spesso invitati nelle case dei loro maestri, creando un rapporto più diretto e personale tra docenti e allievi, in linea con la filosofia educativa della Bauhaus.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 p-6 bg-gray-50 rounded-lg">
+                        <h4 class="font-semibold text-xl mb-3 text-center">Significato culturale e storico</h4>
+                        <p class="mb-4">Le Case dei Maestri rappresentavano un laboratorio vivente dei principi della Bauhaus: l'unione di arte e vita quotidiana. Erano la dimostrazione concreta che i principi estetici e funzionali della scuola potevano essere applicati con successo all'architettura residenziale.</p>
+                        <p>Oggi, le case restaurate sono un importante sito del patrimonio culturale mondiale, inserite nella lista UNESCO dal 1996 insieme all'edificio principale della Bauhaus. Visitarle permette di comprendere non solo l'architettura, ma anche lo stile di vita e la filosofia che caratterizzavano questo movimento rivoluzionario.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kandinsky -->
+        <section id="kandinsky" class="mb-16">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold mb-6 section-title">Wassily Kandinsky</h2>
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/3">
+                        <div class="artist-card bg-blue-50 rounded-lg p-6 shadow-md">
+                            <img src="immagini/kandinsky.jpg" alt="Ritratto di Wassily Kandinsky" class="rounded-lg shadow-md mb-4">
+                            <div class="text-center">
+                                <h3 class="text-xl font-semibold mb-2">Wassily Kandinsky</h3>
+                                <p class="italic">1866-1944</p>
+                                <p class="mt-2">Pittore russo, pioniere dell'arte astratta</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Cronologia essenziale</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li><strong>1866:</strong> Nasce a Mosca, Russia</li>
+                                <li><strong>1896:</strong> Abbandona la carriera legale per studiare arte</li>
+                                <li><strong>1911:</strong> Fonda il gruppo "Der Blaue Reiter" (Il Cavaliere Azzurro)</li>
+                                <li><strong>1914:</strong> Ritorna in Russia allo scoppio della guerra</li>
+                                <li><strong>1922:</strong> Si unisce alla Bauhaus come maestro</li>
+                                <li><strong>1926-1932:</strong> Vive nella Casa dei Maestri a Dessau</li>
+                                <li><strong>1933:</strong> Lascia la Germania per Parigi dopo la chiusura della Bauhaus</li>
+                                <li><strong>1944:</strong> Muore a Neuilly-sur-Seine, Francia</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-2xl font-semibold mb-4">L'Artista e la Bauhaus</h3>
+                        <p class="mb-4">Wassily Kandinsky è considerato uno dei pionieri dell'arte astratta. Nato a Mosca nel 1866, iniziò la sua carriera come professore di diritto, ma a 30 anni decise di dedicarsi completamente all'arte. Si unì alla Bauhaus nel 1922, invitato da Walter Gropius per insegnare nella scuola.</p>
+                        <p class="mb-4">Durante il suo periodo alla Bauhaus (1922-1933), Kandinsky sviluppò ulteriormente le sue teorie sul colore e la forma, influenzando profondamente gli studenti e i colleghi. La sua residenza nella Casa dei Maestri di Dessau coincise con uno dei periodi più produttivi della sua carriera.</p>
+                        
+                        <div class="anecdote my-6 pl-4">
+                            <h4 class="font-semibold mb-2">Aneddoto:</h4>
+                            <p>Kandinsky aveva una rara condizione chiamata sinestesia, che gli permetteva di "vedere" i suoni come colori e forme. Quando ascoltava la musica, percepiva colori specifici e forme geometriche. Questa peculiarità influenzò profondamente la sua arte e la sua teoria del colore. Durante le sue lezioni alla Bauhaus, spesso suonava musica e chiedeva agli studenti di dipingere ciò che "vedevano", cercando di sviluppare in loro una sensibilità simile alla sua.</p>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h4 class="text-xl font-semibold mb-3">Opere Principali durante il periodo Bauhaus</h4>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <img src="immagini/kandinsky-composizione-viii.jpg" alt="Composizione VIII di Kandinsky" class="rounded-lg shadow-md mb-2">
+                                    <p class="text-center mt-2 font-medium">Composizione VIII (1923)</p>
+                                    <p class="text-center text-sm mt-1">Una delle prime opere del suo periodo Bauhaus, caratterizzata da forme geometriche e colori primari.</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <img src="immagini/kandinsky-giallo-rosso-blu.jpg" alt="Giallo-Rosso-Blu di Kandinsky" class="rounded-lg shadow-md mb-2">
+                                    <p class="text-center mt-2 font-medium">Giallo-Rosso-Blu (1925)</p>
+                                    <p class="text-center text-sm mt-1">Opera che esemplifica la sua teoria sul rapporto tra colori primari e forme geometriche.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 bg-blue-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">La Teoria del Colore di Kandinsky</h4>
+                            <p class="mb-3">Durante il suo periodo alla Bauhaus, Kandinsky sviluppò la sua teoria secondo cui i colori hanno qualità intrinseche che possono evocare emozioni specifiche. Nel suo libro "Punto, linea, superficie" (1926), scritto durante il periodo di Dessau, elaborò una grammatica visiva che associava forme geometriche a specifiche sensazioni emotive.</p>
+                            <p>Per Kandinsky, il triangolo era associato all'aggressività e all'azione, il quadrato alla calma e alla materialità, mentre il cerchio rappresentava lo spirituale e il cosmico. Questa teoria influenzò profondamente il suo insegnamento e la sua arte, così come l'approccio della Bauhaus al design.</p>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h4 class="text-xl font-semibold mb-3">L'insegnamento alla Bauhaus</h4>
+                            <p class="mb-3">Alla Bauhaus, Kandinsky insegnava due corsi principali:</p>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li><strong>Corso analitico di disegno</strong> - Dove insegnava agli studenti a scomporre gli oggetti nelle loro forme geometriche essenziali</li>
+                                <li><strong>Teoria della forma e del colore</strong> - Dove sviluppava le sue teorie sulla relazione tra forme, colori ed emozioni</li>
+                            </ul>
+                            <p class="mt-3">Il suo approccio pedagogico era basato sull'idea che l'arte potesse essere insegnata attraverso principi scientifici e razionali, in linea con la filosofia della Bauhaus di unire arte e tecnologia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Klee -->
+        <section id="klee" class="mb-16">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold mb-6 section-title">Paul Klee</h2>
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/3">
+                        <div class="artist-card bg-yellow-50 rounded-lg p-6 shadow-md">
+                            <img src="immagini/klee.jpg" alt="Ritratto di Paul Klee" class="rounded-lg shadow-md mb-4">
+                            <div class="text-center">
+                                <h3 class="text-xl font-semibold mb-2">Paul Klee</h3>
+                                <p class="italic">1879-1940</p>
+                                <p class="mt-2">Pittore svizzero-tedesco, maestro del colore e della linea</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Cronologia essenziale</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li><strong>1879:</strong> Nasce a Münchenbuchsee, Svizzera</li>
+                                <li><strong>1898-1901:</strong> Studia arte a Monaco</li>
+                                <li><strong>1911:</strong> Entra in contatto con il gruppo "Der Blaue Reiter"</li>
+                                <li><strong>1914:</strong> Viaggio in Tunisia, esperienza cruciale per il suo uso del colore</li>
+                                <li><strong>1921:</strong> Si unisce alla Bauhaus come maestro</li>
+                                <li><strong>1926-1931:</strong> Vive nella Casa dei Maestri a Dessau</li>
+                                <li><strong>1931:</strong> Diventa professore all'Accademia di Düsseldorf</li>
+                                <li><strong>1933:</strong> Viene licenziato dai nazisti e torna in Svizzera</li>
+                                <li><strong>1940:</strong> Muore a Muralto, Svizzera</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-2xl font-semibold mb-4">L'Artista e la Bauhaus</h3>
+                        <p class="mb-4">Paul Klee, nato in Svizzera nel 1879, si unì alla Bauhaus nel 1921, un anno prima di Kandinsky. Come il suo collega e vicino di casa, Klee divenne uno degli insegnanti più influenti della scuola.</p>
+                        <p class="mb-4">Durante il suo periodo alla Bauhaus (1921-1931), Klee insegnò diverse materie, tra cui la teoria della forma. La sua arte, caratterizzata da un uso poetico del colore e della linea, si sviluppò in modo significativo durante gli anni trascorsi nella Casa dei Maestri di Dessau.</p>
+                        
+                        <div class="anecdote my-6 pl-4">
+                            <h4 class="font-semibold mb-2">Aneddoto:</h4>
+                            <p>Klee era anche un musicista di talento. Suonava il violino fin dall'infanzia e spesso si esibiva in duo con sua moglie Lily, che era pianista. Nella sua casa a Dessau, organizzava regolarmente serate musicali a cui partecipavano altri maestri della Bauhaus. La sua profonda conoscenza musicale influenzò il suo approccio all'arte: spesso paragonava la composizione pittorica a quella musicale, parlando di "polifonia" visiva nelle sue opere.</p>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h4 class="text-xl font-semibold mb-3">Opere Principali durante il periodo Bauhaus</h4>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <img src="immagini/klee-senecio.jpg" alt="Senecio di Paul Klee" class="rounded-lg shadow-md mb-2">
+                                    <p class="text-center mt-2 font-medium">Senecio (1922)</p>
+                                    <p class="text-center text-sm mt-1">Uno dei suoi ritratti più famosi, che combina elementi figurativi e astratti.</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <img src="immagini/klee-castello-sole.jpg" alt="Castello e Sole di Paul Klee" class="rounded-lg shadow-md mb-2">
+                                    <p class="text-center mt-2 font-medium">Castello e Sole (1928)</p>
+                                    <p class="text-center text-sm mt-1">Opera che mostra il suo interesse per l'architettura e le strutture geometriche.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 bg-yellow-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">L'Approccio Pedagogico di Klee</h4>
+                            <p class="mb-3">Klee è noto per il suo approccio unico all'insegnamento. Le sue lezioni alla Bauhaus erano basate su un'analisi profonda degli elementi fondamentali dell'arte: punto, linea, piano e colore.</p>
+                            <p>I suoi appunti didattici, raccolti in "Teoria della forma e della figurazione" (Bildnerische Formlehre), rimangono un testo fondamentale per l'educazione artistica. In questo testo, Klee sviluppò una teoria complessa che collegava la natura, la matematica e l'arte.</p>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h4 class="text-xl font-semibold mb-3">La filosofia artistica di Klee</h4>
+                            <p class="mb-3">Per Klee, l'arte non doveva imitare la natura, ma rivelare i processi attraverso cui la natura stessa crea. Era affascinato dalle strutture organiche, dai ritmi naturali e dalle leggi matematiche che governano la crescita delle piante.</p>
+                            <p class="quote mb-4">"L'arte non riproduce ciò che è visibile, ma rende visibile ciò che non sempre lo è." - Paul Klee</p>
+                            <p>Questa filosofia si rifletteva nel suo insegnamento alla Bauhaus, dove incoraggiava gli studenti a osservare attentamente la natura e a comprenderne i principi strutturali, piuttosto che copiarne semplicemente l'aspetto esteriore.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Altri Maestri -->
+        <section id="other-masters" class="mb-16">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold mb-6 section-title">Gli Altri Maestri delle Case di Dessau</h2>
+                <p class="text-lg mb-6">Oltre a Kandinsky e Klee, altri importanti maestri della Bauhaus vissero nelle Case dei Maestri di Dessau, contribuendo a creare una comunità artistica e intellettuale unica.</p>
+                
+                <div class="bauhaus-grid mb-8">
+                    <div class="bg-blue-50 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold mb-3">László Moholy-Nagy</h3>
+                        <p class="mb-3">Artista e designer ungherese, pioniere della fotografia e dei nuovi media. Visse in una delle case doppie con la moglie Lucia Moholy, fotografa che documentò la Bauhaus.</p>
+                        <p class="mb-3"><strong>Contributo:</strong> Rivoluzionò il corso preliminare della Bauhaus, introducendo esperimenti con nuovi materiali e tecnologie.</p>
+                        <div class="anecdote mt-4 pl-4">
+                            <p class="text-sm">Moholy-Nagy era noto per i suoi esperimenti con la luce. Nella sua casa a Dessau, creò il "Modulatore Luce-Spazio", una scultura cinetica che proiettava ombre e luci in movimento, anticipando l'arte cinetica degli anni '60.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-yellow-50 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold mb-3">Lyonel Feininger</h3>
+                        <p class="mb-3">Pittore e incisore tedesco-americano, noto per il suo stile cubista e le sue rappresentazioni architettoniche. Condivise una casa doppia con Moholy-Nagy.</p>
+                        <p class="mb-3"><strong>Contributo:</strong> Diresse il laboratorio di stampa e creò la famosa xilografia che apparve sul manifesto della Bauhaus del 1919.</p>
+                        <div class="anecdote mt-4 pl-4">
+                            <p class="text-sm">Feininger era anche un appassionato costruttore di modellini di navi e treni. Nel seminterrato della sua casa a Dessau, aveva allestito un piccolo laboratorio dove costruiva modelli in scala perfettamente funzionanti, che spesso regalava ai figli degli altri maestri.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-green-50 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold mb-3">Georg Muche</h3>
+                        <p class="mb-3">Pittore e designer tedesco, uno dei più giovani maestri della Bauhaus. Visse in una delle case doppie con Oskar Schlemmer.</p>
+                        <p class="mb-3"><strong>Contributo:</strong> Progettò la "Haus am Horn", la prima casa sperimentale della Bauhaus costruita a Weimar nel 1923.</p>
+                        <div class="anecdote mt-4 pl-4">
+                            <p class="text-sm">Muche era un appassionato giardiniere. Nel giardino della sua casa a Dessau, coltivava piante secondo principi geometrici, creando un "giardino Bauhaus" che rifletteva le teorie della scuola sulla forma e sul colore.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bauhaus-grid mb-8">
+                    <div class="bg-red-50 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold mb-3">Oskar Schlemmer</h3>
+                        <p class="mb-3">Pittore, scultore e designer tedesco, noto soprattutto per il suo lavoro teatrale. Condivise una casa doppia con Georg Muche.</p>
+                        <p class="mb-3"><strong>Contributo:</strong> Diresse il laboratorio teatrale della Bauhaus e creò il celebre "Balletto Triadico", che rivoluzionò la danza moderna.</p>
+                        <div class="anecdote mt-4 pl-4">
+                            <p class="text-sm">Schlemmer trasformò spesso il soggiorno della sua casa in un piccolo teatro sperimentale. Qui, insieme agli studenti, provava costumi e coreografie per i suoi balletti, utilizzando i mobili come elementi scenografici improvvisati.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-purple-50 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold mb-3">Josef Albers</h3>
+                        <p class="mb-3">Artista e insegnante tedesco-americano, noto per i suoi studi sul colore. Visse a Dessau con la moglie Anni Albers, importante designer tessile.</p>
+                        <p class="mb-3"><strong>Contributo:</strong> Rivoluzionò l'insegnamento del colore e dei materiali, sviluppando esercizi innovativi per gli studenti.</p>
+                        <div class="anecdote mt-4 pl-4">
+                            <p class="text-sm">Gli Albers erano noti per la loro ospitalità. Nella loro casa organizzavano regolarmente "serate di discussione" dove studenti e maestri dibattevano di arte e design davanti a tè e dolci preparati da Anni. Queste serate informali erano spesso più influenti delle lezioni ufficiali.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-indigo-50 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold mb-3">Marcel Breuer</h3>
+                        <p class="mb-3">Designer e architetto ungherese, ex studente diventato maestro. Visse a Dessau durante il periodo più produttivo della sua carriera.</p>
+                        <p class="mb-3"><strong>Contributo:</strong> Rivoluzionò il design del mobile con le sue sedie in tubolare d'acciaio, molte delle quali arredavano le Case dei Maestri.</p>
+                        <div class="anecdote mt-4 pl-4">
+                            <p class="text-sm">Breuer progettò la sua famosa sedia "Wassily" (in tubolare d'acciaio e pelle) specificamente per l'appartamento di Kandinsky nella Casa dei Maestri. Il nome deriva proprio dal fatto che il primo esemplare fu creato per il suo collega e amico.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 p-6 bg-gray-50 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-center">La Comunità Creativa di Dessau</h3>
+                    <p class="mb-4">Le Case dei Maestri non erano solo abitazioni, ma un vero e proprio laboratorio di idee. La vicinanza fisica tra questi artisti e designer di talento favorì uno scambio continuo di idee e collaborazioni che influenzarono profondamente lo sviluppo dell'arte e del design moderni.</p>
+                    <p class="mb-4">Nonostante le diverse personalità e approcci artistici, i maestri della Bauhaus condividevano la convinzione che l'arte e il design potessero e dovessero migliorare la vita quotidiana. Le loro case erano la dimostrazione vivente di questo principio.</p>
+                    <p>Dopo la chiusura forzata della Bauhaus nel 1933 da parte del regime nazista, molti di questi maestri emigrarono negli Stati Uniti e in altri paesi, diffondendo i principi della Bauhaus in tutto il mondo e influenzando generazioni di artisti, designer e architetti.</p>
+                </div>
+                
+                <div class="mt-8">
+                    <h3 class="text-2xl font-semibold mb-4">L'Eredità delle Case dei Maestri</h3>
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/2 bg-blue-50 p-6 rounded-lg">
+                            <h4 class="font-semibold mb-3">Influenza sull'architettura residenziale</h4>
+                            <p>Le Case dei Maestri di Dessau hanno avuto un'influenza duratura sull'architettura residenziale del XX secolo. I loro principi di funzionalità, luce naturale, spazi flessibili e integrazione con l'ambiente esterno sono diventati elementi fondamentali dell'architettura moderna.</p>
+                        </div>
+                        <div class="md:w-1/2 bg-green-50 p-6 rounded-lg">
+                            <h4 class="font-semibold mb-3">Restauro e conservazione</h4>
+                            <p>Dopo decenni di abbandono e deterioramento durante il periodo della DDR, le Case dei Maestri sono state progressivamente restaurate a partire dagli anni '90. Oggi, sono aperte al pubblico come museo e rappresentano una testimonianza tangibile dell'eredità della Bauhaus.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Confronto e Influenza Reciproca -->
+        <section class="mb-16">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold mb-6 section-title">Influenze e Connessioni</h2>
+                <p class="text-lg mb-6">Vivendo e lavorando fianco a fianco nella Casa dei Maestri di Dessau, Kandinsky e Klee svilupparono un rapporto di amicizia e rispetto reciproco che influenzò le loro opere.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-3">Somiglianze</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Entrambi esploravano l'astrazione e il rapporto tra musica e arte visiva</li>
+                            <li>Condividevano un interesse per la teoria del colore</li>
+                            <li>Entrambi integravano elementi geometrici nelle loro opere</li>
+                            <li>Svilupparono approcci didattici innovativi alla Bauhaus</li>
+                        </ul>
+                    </div>
+                    <div class="bg-yellow-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-3">Differenze</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Kandinsky tendeva verso l'astrazione pura, mentre Klee manteneva spesso elementi figurativi</li>
+                            <li>Klee era più interessato alla linea e al disegno, Kandinsky al colore e alla forma</li>
+                            <li>L'approccio di Klee era più poetico e narrativo, quello di Kandinsky più teorico</li>
+                            <li>Kandinsky usava colori più vivaci e contrastanti, Klee tonalità più delicate</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mt-8">
+                    <h3 class="text-2xl font-semibold mb-4">Dialogo artistico</h3>
+                    <p class="mb-4">La vicinanza fisica delle loro abitazioni favorì un dialogo artistico continuo tra Kandinsky e Klee. Spesso si visitavano a vicenda per discutere delle loro opere e teorie. Questo scambio intellettuale è visibile in alcune opere del periodo, dove si possono notare influenze reciproche.</p>
+                    
+                    <div class="anecdote my-6 pl-4">
+                        <h4 class="font-semibold mb-2">Aneddoto:</h4>
+                        <p>Si racconta che Kandinsky e Klee avessero l'abitudine di fare lunghe passeggiate insieme nei dintorni di Dessau, durante le quali discutevano di arte, musica e filosofia. Durante queste camminate, spesso si fermavano a osservare dettagli della natura che poi reinterpretavano nelle loro opere, ciascuno secondo il proprio stile.</p>
+                    </div>
+                    
+                    <div class="mt-8 p-6 bg-gradient-to-r from-blue-50 to-yellow-50 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-3 text-center">L'Eredità di Kandinsky e Klee</h3>
+                        <p class="text-center mb-4">L'influenza di questi due maestri della Bauhaus si estende ben oltre il loro tempo. Le loro teorie e opere hanno plasmato generazioni di artisti e designer, e continuano a essere studiate e celebrate in tutto il mondo.</p>
+                        <p class="text-center">La loro esperienza nella Casa dei Maestri di Dessau rappresenta un momento unico nella storia dell'arte, in cui vita quotidiana, architettura e creazione artistica si fusero in un'esperienza integrata, incarnando perfettamente l'ideale della Bauhaus di unire arte e vita.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bauhaus-bg text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-xl font-bold">La Bauhaus e i suoi Maestri</h3>
+                    <p class="mt-2">Un viaggio attraverso l'arte, l'architettura e il design</p>
+                </div>
+                <div>
+                    <p>© 2023 - Sito creato a scopo educativo</p>
+                    <p class="mt-1">Tutti i diritti riservati</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script per la navigazione attiva
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('main section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            window.addEventListener('scroll', function() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= sectionTop - 200) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active-nav');
+                    if (link.getAttribute('href').substring(1) === current) {
+                        link.classList.add('active-nav');
+                    }
+                });
+            });
+            
+            // Smooth scrolling per i link di navigazione
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9508fde8938ba265',t:'MTc1MDA2MzExNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
